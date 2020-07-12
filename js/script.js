@@ -36,6 +36,7 @@ navigator.mediaDevices.getUserMedia({audio:true})
         chunks = [];
         let audioURL = URL.createObjectURL(blob);
         audioElement.src = audioURL;
+        alert(audioElement.src);
         
         
       }
