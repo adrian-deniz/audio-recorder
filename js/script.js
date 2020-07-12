@@ -13,18 +13,18 @@ navigator.mediaDevices.getUserMedia({audio:true})
 
     record.addEventListener('click', function() {
         mediaRecorder.start();
-        record.style.display = "none";
-        stop.style.display = "initial";
-        console.log(mediaRecorder.state);
+        // record.style.display = "none";
+        // stop.style.display = "initial";
+        // console.log(mediaRecorder.state);
     });
     
     
 /*------------------------------------------------------------------------------------*/
     stop.addEventListener('click', function() {
         mediaRecorder.stop();
-        record.style.display = "initial";
-        stop.style.display = "none";
-        console.log(mediaRecorder.state);
+        // record.style.display = "initial";
+        // stop.style.display = "none";
+        // console.log(mediaRecorder.state);
     });
 
       mediaRecorder.onstop = function(e) {
