@@ -13,6 +13,7 @@ navigator.mediaDevices.getUserMedia({audio:true})
 
     record.addEventListener('click', function() {
         mediaRecorder.start();
+        alert('start');
         // record.style.display = "none";
         // stop.style.display = "initial";
         // console.log(mediaRecorder.state);
@@ -36,7 +37,7 @@ navigator.mediaDevices.getUserMedia({audio:true})
         chunks = [];
         let audioURL = URL.createObjectURL(blob);
         audioElement.src = audioURL;
-        alert(audioElement.src);
+        
         
         
       }
