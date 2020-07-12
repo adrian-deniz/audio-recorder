@@ -7,7 +7,7 @@ let order = 0;
 
 navigator.mediaDevices.getUserMedia({audio:true})
   .then(function(stream) {
-
+    console.log(123);
     let mediaRecorder = new MediaRecorder(stream);
     
 
