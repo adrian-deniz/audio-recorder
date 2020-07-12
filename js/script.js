@@ -2,6 +2,7 @@ let chunks = [];
 let audioContainer = document.getElementById('audio-container');
 let record = document.getElementById('record');
 let stop = document.getElementById('stop');
+let audioElement = document.getElementById('audio-element');
 let order = 0;
 
 navigator.mediaDevices.getUserMedia({audio:true})
@@ -28,13 +29,13 @@ navigator.mediaDevices.getUserMedia({audio:true})
 
       mediaRecorder.onstop = function(e) {
         
-        let audio = document.createElement("AUDIO");
-        audio.style.order = order--;
-        audioContainer.appendChild(audio).setAttribute("controls", "");
+        // let audio = document.createElement("AUDIO");
+        // audio.style.order = order--;
+        // audioContainer.appendChild(audio).setAttribute("controls", "");
         let blob = new Blob(chunks, { 'type' : 'audio/mp3; codecs=opus' });
         chunks = [];
         let audioURL = URL.createObjectURL(blob);
-        audio.src = audioURL;
+        audioElement.src = audioURL;
         
         
       }

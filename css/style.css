@@ -7,11 +7,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* background-color: red; */
 }
 
 .btn-container {
-    /* background-color: green; */
     display: flex;
     justify-content: center;
     height: 80px;
