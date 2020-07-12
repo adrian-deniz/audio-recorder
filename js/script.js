@@ -5,6 +5,14 @@ let stop = document.getElementById('stop');
 let audioElement = document.getElementById('audio-element');
 let order = 0;
 
+record.addEventListener('click', function() {
+  mediaRecorder.start();
+  alert('start');
+  // record.style.display = "none";
+  // stop.style.display = "initial";
+  // console.log(mediaRecorder.state);
+});
+
 navigator.mediaDevices.getUserMedia({audio:true})
   .then(function(stream) {
     alert(123);
