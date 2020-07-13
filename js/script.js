@@ -2,50 +2,46 @@ let chunks = [];
 let audioContainer = document.getElementById('audio-container');
 let record = document.getElementById('record');
 let stop = document.getElementById('stop');
-let audioElement = document.getElementById('audio-element');
 let order = 0;
-let mediaRecorder;
 
-// record.addEventListener('click', function() {
-//   // mediaRecorder.start();
-//   alert('start');
-//   // record.style.display = "none";
-//   // stop.style.display = "initial";
-//   // console.log(mediaRecorder.state);
-// });
+record.addEventListener('click', function() {
+  mediaRecorder.start();
+  record.style.display = "none";
+  stop.style.display = "initial";
+  console.log(mediaRecorder.state);
+});
 
 navigator.mediaDevices.getUserMedia({audio:true})
   .then(function(stream) {
-    alert(123);
-    mediaRecorder = new MediaRecorder(stream);
+    
+    let mediaRecorder = new MediaRecorder(stream);
     
 
     record.addEventListener('click', function() {
         mediaRecorder.start();
-        alert('start');
-        // record.style.display = "none";
-        // stop.style.display = "initial";
-        // console.log(mediaRecorder.state);
+        record.style.display = "none";
+        stop.style.display = "initial";
+        console.log(mediaRecorder.state);
     });
     
     
 /*------------------------------------------------------------------------------------*/
     stop.addEventListener('click', function() {
         mediaRecorder.stop();
-        // record.style.display = "initial";
-        // stop.style.display = "none";
-        // console.log(mediaRecorder.state);
+        record.style.display = "initial";
+        stop.style.display = "none";
+        console.log(mediaRecorder.state);
     });
 
       mediaRecorder.onstop = function(e) {
         
-        // let audio = document.createElement("AUDIO");
-        // audio.style.order = order--;
-        // audioContainer.appendChild(audio).setAttribute("controls", "");
+        let audio = document.createElement("AUDIO");
+        audio.style.order = order--;
+        audioContainer.appendChild(audio).setAttribute("controls", "");
         let blob = new Blob(chunks, { 'type' : 'audio/mp3; codecs=opus' });
         chunks = [];
         let audioURL = URL.createObjectURL(blob);
-        audioElement.src = audioURL;
+        audio.src = audioURL;
         
         
         
