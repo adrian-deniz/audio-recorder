@@ -4,17 +4,9 @@ let record = document.getElementById('record');
 let stop = document.getElementById('stop');
 let order = 0;
 
-record.addEventListener('click', function() {
-  mediaRecorder.start();
-  record.style.display = "none";
-  stop.style.display = "initial";
-  console.log(mediaRecorder.state);
-});
-
 navigator.mediaDevices.getUserMedia({audio:true})
   .then(function(stream) {
-    
-    let mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder = new MediaRecorder(stream);
     
 
     record.addEventListener('click', function() {
