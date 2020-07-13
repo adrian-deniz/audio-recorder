@@ -3,6 +3,7 @@ let audioContainer = document.getElementById('audio-container');
 let record = document.getElementById('record');
 let stop = document.getElementById('stop');
 let order = 0;
+let booger = document.getElementById('booger');
 
 navigator.mediaDevices.getUserMedia({audio:true})
   .then(function(stream) {
