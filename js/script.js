@@ -4,28 +4,29 @@ let record = document.getElementById('record');
 let stop = document.getElementById('stop');
 let audioElement = document.getElementById('audio-element');
 let order = 0;
+let mediaRecorder;
 
-record.addEventListener('click', function() {
-  // mediaRecorder.start();
-  alert('start');
-  // record.style.display = "none";
-  // stop.style.display = "initial";
-  // console.log(mediaRecorder.state);
-});
+// record.addEventListener('click', function() {
+//   // mediaRecorder.start();
+//   alert('start');
+//   // record.style.display = "none";
+//   // stop.style.display = "initial";
+//   // console.log(mediaRecorder.state);
+// });
 
 navigator.mediaDevices.getUserMedia({audio:true})
   .then(function(stream) {
     alert(123);
-    let mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder = new MediaRecorder(stream);
     
 
-    // record.addEventListener('click', function() {
-    //     mediaRecorder.start();
-    //     alert('start');
-    //     // record.style.display = "none";
-    //     // stop.style.display = "initial";
-    //     // console.log(mediaRecorder.state);
-    // });
+    record.addEventListener('click', function() {
+        mediaRecorder.start();
+        alert('start');
+        // record.style.display = "none";
+        // stop.style.display = "initial";
+        // console.log(mediaRecorder.state);
+    });
     
     
 /*------------------------------------------------------------------------------------*/
